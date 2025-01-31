@@ -18,9 +18,19 @@
         </h1>
       </RouterLink>
       <h1
+        class="text-sm font-medium transition ease-in-out delay-150 text-weather-secondary md:text-lg lg:text-2xl"
+      >
+        ,
+      </h1>
+      <h1
         class="text-sm font-medium transition ease-in-out delay-150 text-weather-secondary hover:text-weather-blue md:text-lg lg:text-2xl"
       >
-        Weather
+        How it works
+      </h1>
+      <h1
+        class="text-sm font-medium transition ease-in-out delay-150 text-weather-secondary md:text-lg lg:text-2xl"
+      >
+        ,
       </h1>
       <h1
         class="text-sm font-medium transition ease-in-out delay-150 text-weather-secondary hover:text-weather-blue md:text-lg lg:text-2xl"
