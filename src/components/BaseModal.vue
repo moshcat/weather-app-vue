@@ -1,29 +1,33 @@
 <template>
-  <Transition name="modal-outer">
-    <div
-      class="absolute top-0 left-0 flex justify-center w-full h-screen px-0 bg-slate-900 bg-opacity-30"
-      v-show="modalActive"
-    >
-      <Transition name="modal-inner">
-        <div class="self-start max-w-screen-md p-4 mt-32 bg-white rounded-lg" v-if="modalActive">
-          <slot />
-          <div class="flex items-center justify-center mb-3">
-            <button
-              class="py-2 mt-8 text-white transition ease-in-out delay-200 rounded-md shadow-lg hover:shadow-lg hover:bg-slate-900 px-14 bg-weather-primary"
-              @click="$emit('close-modal')"
-            >
-              Close
-            </button>
+  <Teleport to="body">
+    <Transition name="modal-outer">
+      <div
+        class="absolute top-0 left-0 flex justify-center w-full h-screen px-0 bg-slate-900 bg-opacity-30"
+        v-show="modalActive"
+      >
+        <Transition name="modal-inner">
+          <div class="self-start max-w-screen-md p-4 mt-32 bg-white rounded-lg" v-if="modalActive">
+            <slot />
+            <div class="flex items-center justify-center mb-3">
+              <button
+                class="py-2 mt-8 text-white transition ease-in-out delay-200 rounded-md shadow-lg hover:shadow-lg hover:bg-slate-900 px-14 bg-weather-primary"
+                @click="$emit('close-modal')"
+              >
+                Close
+              </button>
+            </div>
           </div>
-        </div>
-      </Transition>
-    </div>
-  </Transition>
+        </Transition>
+      </div>
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup>
+// define emits untuk akses ke close modal
 defineEmits(['close-modal'])
 
+// define props untuk modal
 defineProps({
   modalActive: {
     type: Boolean,

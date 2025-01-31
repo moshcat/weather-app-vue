@@ -68,11 +68,18 @@ import { ref, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 import BaseModal from './BaseModal.vue'
 
+// modalActive state for modal status
 const modalActive = ref(null)
+
+/**
+ * fungsi trigger dari komponen modal
+ * cek value modalActive jika berbeda maka triger aktif
+ * */
 const toggleModal = () => {
   modalActive.value = !modalActive.value
 }
 
+// modal content for how it works content
 const modalContent = reactive({
   about:
     'weather.co  allows you to track current weather and future weather of cities from what you choose',
