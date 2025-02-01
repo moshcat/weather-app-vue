@@ -28,13 +28,15 @@ const getSearchResult = () => {
   clearTimeout(queryTimeout.value)
   queryTimeout.value = setTimeout(async () => {
     if (searchQuery.value !== '') {
-      console.log(geoApi)
-
-      const result = await axios.get(
-        `https://api.geoapify.com/v1/geocode/search?text=${searchQuery.value}&apiKey=${geoApi}`,
-      )
-      geoSearchResult.value = result.data.features
-      console.log(geoSearchResult.value)
+      try {
+        const result = await axios.get(
+          `https://api.geoapify.com/v1/geocode/search?text=${searchQuery.value}&apiKey=${geoApi}`,
+        )
+        geoSearchResult.value = result.data.features
+        console.log(geoSearchResult.value)
+      } catch (error) {
+        console.error(error)
+      }
       return
     }
     geoSearchResult.value = null
