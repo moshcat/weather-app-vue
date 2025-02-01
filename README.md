@@ -1,3 +1,7 @@
+#### documentation
+
+geoapi = https://apidocs.geoapify.com/docs/geocoding/forward-geocoding/
+
 # weather-app-vue
 
 This template should help get you started developing with Vue 3 in Vite.
