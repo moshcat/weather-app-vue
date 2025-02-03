@@ -22,6 +22,7 @@
               v-for="searchResult in geoSearchResult"
               :key="searchResult.id"
               class="px-2 py-1 cursor-pointer"
+              @click="previewCity(searchResult)"
             >
               {{ searchResult.properties.formatted }}
             </li>
@@ -35,6 +36,22 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const previewCity = (searchResult) => {
+  console.log(searchResult)
+  const [city, state] = searchResult.properties.formatted.split(', ')
+  router.push({
+    name: 'cityView',
+    params: { city: city, state: state.trim() },
+    query: {
+      lat: searchResult.geometry.coordinates[1],
+      lon: searchResult.geometry.coordinates[0],
+      preview: true,
+    },
+  })
+}
 
 const geoApi = import.meta.env.VITE_GEO_API
 const searchQuery = ref('')
