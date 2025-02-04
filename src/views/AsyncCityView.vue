@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <h1 class="text-weather-secondary">Ini informasi cuaca</h1>
+  </div>
 </template>
 
 <script setup>
